@@ -104,16 +104,17 @@
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
   .cols h3 { font-size: 1.35rem; margin-bottom: 22px; }
   .timeline { list-style: none; margin: 0; padding: 0 0 0 28px; border-left: 2px solid #cdbfa9; }
-  .timeline li { position: relative; padding-bottom: 26px; }
-  .timeline li::before { content: ""; position: absolute; left: -38px; top: 6px; width: 18px; height: 18px; border-radius: 50%; background: var(--sage); border: 2px solid var(--ink); }
-  .timeline li:nth-child(2)::before { background: var(--sky); }
-  .timeline li:nth-child(3)::before { background: var(--blush); }
+  .timeline > li { position: relative; padding-bottom: 26px; }
+  .timeline > li::before { content: ""; position: absolute; left: -38px; top: 6px; width: 18px; height: 18px; border-radius: 50%; background: var(--sage); border: 2px solid var(--ink); }
+  .timeline > li:nth-child(2)::before { background: var(--sky); }
+  .timeline > li:nth-child(3)::before { background: var(--blush); }
   .date { font-size: .88rem; font-weight: 700; color: var(--sage-deep); }
   .timeline h4 { font-size: 1.06rem; margin: 2px 0; }
   .org { color: var(--muted); margin-bottom: 6px; font-size: .96rem; }
   .timeline p, .timeline ul { margin: 0; font-size: .97rem; }
   .timeline ul { padding-left: 18px; }
-  .timeline li li { margin-bottom: 3px; }
+  .timeline li li { margin-bottom: 6px; padding: 0; }
+  .timeline li li::before { content: none; }
 
   /* Compétences */
   .skills { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px 44px; }
@@ -151,11 +152,16 @@
   footer { text-align: center; padding: 36px 0 48px; color: var(--muted); font-size: .92rem; }
 
   @media (max-width: 800px) {
-    .hero, .cols, .extra { grid-template-columns: 1fr; }
+    .hero, .extra { grid-template-columns: 1fr; }
+    .cols { gap: 28px; }
+    .cols > div { min-width: 0; }
+    .timeline h4 { font-size: 1rem; }
+    .timeline p, .timeline ul { font-size: .92rem; }
     .hero { padding-top: 40px; }
     .about { grid-template-columns: 1fr; justify-items: start; }
     .contact { padding: 40px 22px; border-radius: 24px; }
   }
+  @media (max-width: 560px) { .cols { grid-template-columns: 1fr; } }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
@@ -218,7 +224,7 @@
 
     <div class="hero">
       <div>
-        <div class="badge">Disponible pour un stage de 22 semaines dès le 15 mars 2027 </div>
+        <div class="badge">Disponible pour un stage dès le 15 mars 2027</div>
         <h1>Je conçois des mécanismes qui prennent vie.</h1>
         <p>Feriel Elghoul, élève ingénieure en génie mécanique à Sigma Clermont. Conception 3D, robotique et prototypage.</p>
         <div class="actions">
@@ -347,14 +353,6 @@
         <div class="cols">
 
           <div>
-             <div class="band" id="parcours">
-    <div class="wrap">
-      <section>
-        <h2 class="title">Mon parcours</h2>
-        <p class="lead">Deux stages en entreprise et un parcours d’ingénieure entre la Tunisie et la France.</p>
-        <div class="cols">
-
-          <div>
             <h3>Expérience</h3>
             <ol class="timeline">
               <li>
@@ -375,6 +373,29 @@
                   <li>Diagnostic du système de pompage de sécurité incendie.</li>
                   <li>Nouvelle disposition 3D du local technique sous SolidWorks, pour faciliter l’accès et la maintenance.</li>
                 </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div>
+            <h3>Formation</h3>
+            <ol class="timeline">
+              <li>
+                <div class="date">2025 – aujourd’hui</div>
+                <h4>Double diplôme en génie mécanique, Machines, Robots et Systèmes</h4>
+                <div class="org">Sigma Clermont, France</div>
+                <p>CFAO, IAO, machine learning, modélisation des robots.</p>
+              </li>
+              <li>
+                <div class="date">2023 – 2025</div>
+                <h4>Génie mécatronique</h4>
+                <div class="org">École nationale d’ingénieurs de Sousse, Tunisie</div>
+                <p>CFAO, méthodes de production mécanique, API, mécanique des fluides, MMC.</p>
+              </li>
+              <li>
+                <div class="date">2020 – 2023</div>
+                <h4>Cycle préparatoire en physique-technologie</h4>
+                <div class="org">IPEI de Nabeul, Tunisie</div>
               </li>
             </ol>
           </div>
@@ -422,11 +443,12 @@
       <div class="contact">
         <svg class="deco d1" aria-hidden="true"><use href="#gear-i"/></svg>
         <svg class="deco d2" aria-hidden="true"><use href="#gear-i"/></svg>
-        
+        <h2>Un stage, un projet ? Parlons-en.</h2>
+        <p>Je cherche un stage de fin d’études de 22 semaines à partir du 15 mars 2027. Écris-moi, je réponds avec plaisir.</p>
         <div class="actions">
           <a class="btn b1" href="mailto:feriel.elghoul@sigma-clermont.fr">feriel.elghoul@sigma-clermont.fr</a>
           <a class="btn b2" href="https://www.linkedin.com/in/VOTRE-PROFIL" target="_blank" rel="noopener">LinkedIn</a>
-        
+          <a class="btn b3" href="https://github.com/VOTRE-IDENTIFIANT" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </section>
