@@ -3,172 +3,447 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mon Portfolio</title>
-<meta name="description" content="Portfolio : mes projets et mes travaux.">
+<title>Feriel Elghoul – Ingénieure en génie mécanique, robotique et conception 3D</title>
+<meta name="description" content="Portfolio de Feriel Elghoul, élève ingénieure en génie mécanique : conception 3D, robotique, prototypage. Disponible pour un stage de fin d’études dès mars 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f7f8fa;
-    --surface: #ffffff;
-    --text: #1b2430;
-    --muted: #5d6b7c;
-    --line: #dde2e9;
-    --accent: #1f5eff;
-    --accent-ink: #ffffff;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #12171f;
-      --surface: #1a212c;
-      --text: #e8edf3;
-      --muted: #9aa8b8;
-      --line: #2b3441;
-      --accent: #6c93ff;
-      --accent-ink: #0d1320;
-    }
+    --beige: #f4ede4;
+    --beige-2: #ebe2d4;
+    --card: #fbf8f3;
+    --edge: #e1d6c5;
+    --ink: #3a3530;
+    --muted: #756c62;
+    --sage: #b9cfb8;
+    --sage-deep: #4d6b58;
+    --sky: #bcd3e3;
+    --blush: #f2c9c4;
+    --lilac: #d4cae8;
+    --butter: #f3e3ae;
+    --head: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.65;
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { margin: 0; background: var(--beige); color: var(--ink); font-family: var(--body); font-size: 1.05rem; line-height: 1.68; }
+  h1, h2, h3, h4 { font-family: var(--head); line-height: 1.15; margin: 0; font-weight: 700; }
+  a { color: var(--sage-deep); }
+  :focus-visible { outline: 3px solid var(--sage-deep); outline-offset: 3px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .ico { width: 1em; height: 1em; display: inline-block; }
+
+  /* Navigation */
+  .nav { position: sticky; top: 0; z-index: 20; background: rgba(244, 237, 228, .92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--edge); }
+  .nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 8px; font-family: var(--head); font-weight: 700; font-size: 1.15rem; text-decoration: none; color: var(--ink); }
+  .brand svg { width: 26px; height: 26px; color: var(--sage-deep); }
+  .nav nav { display: flex; gap: 22px; flex-wrap: wrap; font-size: .95rem; font-weight: 500; }
+  .nav nav a { color: var(--muted); text-decoration: none; }
+  .nav nav a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; padding: 64px 0 40px; }
+  .badge { display: inline-block; background: var(--butter); border: 1px solid #e6d28c; padding: 6px 16px; border-radius: 999px; font-size: .92rem; font-weight: 500; margin-bottom: 22px; }
+  .hero h1 { font-size: clamp(2.3rem, 5.4vw, 3.8rem); letter-spacing: -0.02em; }
+  .hero p { color: var(--muted); font-size: 1.15rem; max-width: 46ch; margin: 20px 0 30px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 13px 26px; border-radius: 999px; font-weight: 700; font-size: .98rem; text-decoration: none; border: 2px solid var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--beige); }
+  .btn.dark:hover { background: var(--sage-deep); border-color: var(--sage-deep); }
+  .btn.ghost { color: var(--ink); }
+  .btn.ghost:hover { background: var(--sage); }
+  .hero-art { width: 100%; height: auto; max-width: 440px; justify-self: center; }
+  .hero-art .gear { stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+
+  /* Séparateur engrenage */
+  .divider { display: flex; align-items: center; gap: 16px; color: var(--sage-deep); margin: 28px 0 0; }
+  .divider::before, .divider::after { content: ""; flex: 1; border-top: 1.5px solid var(--edge); }
+  .divider svg { width: 30px; height: 30px; }
+
+  /* Sections */
+  section { padding: 60px 0 10px; }
+  .title { font-size: clamp(1.8rem, 3.6vw, 2.4rem); margin-bottom: 10px; }
+  .lead { color: var(--muted); max-width: 60ch; margin: 0 0 32px; font-size: 1.1rem; }
+
+  /* Profil */
+  .about { display: grid; grid-template-columns: 200px 1fr; gap: 36px; align-items: center; margin-bottom: 34px; }
+  .photo { position: relative; width: 200px; height: 200px; border-radius: 50%; border: 6px solid var(--card); outline: 2px solid var(--sage); background: linear-gradient(150deg, var(--blush), var(--lilac)); overflow: hidden; display: grid; place-items: center; font-family: var(--head); font-weight: 700; font-size: 3rem; color: var(--ink); }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .about p { margin: 0 0 12px; max-width: 58ch; }
+  .strengths { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .strength { border-radius: 22px; padding: 26px; border: 1px solid rgba(58, 53, 48, .1); }
+  .strength svg { width: 40px; height: 40px; color: var(--ink); margin-bottom: 14px; display: block; }
+  .strength h3 { font-size: 1.2rem; margin-bottom: 6px; }
+  .strength p { margin: 0; font-size: .98rem; }
+  .s1 { background: var(--sage); } .s2 { background: var(--sky); } .s3 { background: var(--blush); }
+
+  /* Projets */
+  .projects { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+  .project { background: var(--card); border: 1px solid var(--edge); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; }
+  .media { position: relative; aspect-ratio: 4 / 3; display: grid; place-items: center; text-align: center; padding: 14px; color: var(--ink); font-size: .9rem; font-weight: 500; }
+  .media svg { width: 64px; height: 64px; display: block; margin: 0 auto 8px; opacity: .75; }
+  .media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .m1 { background: var(--lilac); } .m2 { background: var(--sage); } .m3 { background: var(--sky); }
+  .project .body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+  .project h3 { font-size: 1.28rem; margin-bottom: 4px; }
+  .where { color: var(--muted); font-size: .92rem; margin: 0 0 14px; }
+  .project ul { margin: 0 0 18px; padding-left: 20px; flex: 1; }
+  .project li { margin-bottom: 6px; }
+  .project ul.tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; flex: 0; margin-bottom: 0; }
+  .tags li { margin: 0; padding: 3px 12px; border-radius: 999px; font-size: .84rem; font-weight: 500; background: var(--beige-2); border: 1px solid var(--edge); }
+
+  /* Parcours */
+  .band { background: var(--beige-2); margin-top: 60px; padding: 8px 0 70px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+  .cols h3 { font-size: 1.35rem; margin-bottom: 22px; }
+  .timeline { list-style: none; margin: 0; padding: 0 0 0 28px; border-left: 2px solid #cdbfa9; }
+  .timeline li { position: relative; padding-bottom: 26px; }
+  .timeline li::before { content: ""; position: absolute; left: -38px; top: 6px; width: 18px; height: 18px; border-radius: 50%; background: var(--sage); border: 2px solid var(--ink); }
+  .timeline li:nth-child(2)::before { background: var(--sky); }
+  .timeline li:nth-child(3)::before { background: var(--blush); }
+  .date { font-size: .88rem; font-weight: 700; color: var(--sage-deep); }
+  .timeline h4 { font-size: 1.06rem; margin: 2px 0; }
+  .org { color: var(--muted); margin-bottom: 6px; font-size: .96rem; }
+  .timeline p, .timeline ul { margin: 0; font-size: .97rem; }
+  .timeline ul { padding-left: 18px; }
+  .timeline li li { margin-bottom: 3px; }
+
+  /* Compétences */
+  .skills { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px 44px; }
+  .skills li { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: center; }
+  .skills b { font-weight: 700; }
+  .skills small { color: var(--muted); }
+  .lv { font-size: .86rem; color: var(--muted); }
+  .bar { grid-column: 1 / -1; height: 10px; border-radius: 10px; background: var(--beige-2); border: 1px solid var(--edge); overflow: hidden; }
+  .bar span { display: block; height: 100%; border-radius: 10px; }
+  .w3 { width: 100%; background: var(--sage); } .w2 { width: 66%; background: var(--sky); } .w1 { width: 33%; background: var(--blush); }
+
+  .extra { display: grid; gap: 24px; grid-template-columns: 1fr 1fr; margin-top: 46px; }
+  .box { background: var(--card); border: 1px solid var(--edge); border-radius: 22px; padding: 26px; }
+  .box h3 { font-size: 1.2rem; margin-bottom: 14px; }
+  .langs { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .langs li { background: var(--lilac); border-radius: 999px; padding: 6px 16px; font-weight: 700; }
+  .langs span { font-weight: 400; margin-left: 6px; }
+  .box p { margin: 0 0 6px; }
+
+  /* Contact */
+  .contact { margin-top: 64px; background: var(--ink); color: var(--beige); border-radius: 32px; padding: 52px 40px; text-align: center; position: relative; overflow: hidden; }
+  .contact h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+  .contact p { max-width: 50ch; margin: 14px auto 28px; color: #e2d9cb; font-size: 1.1rem; }
+  .contact .actions { justify-content: center; }
+  .contact .btn { border-color: transparent; color: var(--ink); }
+  .contact .b1 { background: var(--sage); } .contact .b2 { background: var(--sky); } .contact .b3 { background: var(--blush); }
+  .contact .btn:hover { background: var(--butter); }
+  .contact .deco { position: absolute; width: 150px; height: 150px; color: rgba(244, 237, 228, .08); }
+  .contact .d1 { left: -30px; bottom: -40px; } .contact .d2 { right: -30px; top: -40px; }
+  footer { text-align: center; padding: 36px 0 48px; color: var(--muted); font-size: .92rem; }
+
+  @media (max-width: 800px) {
+    .hero, .cols, .extra { grid-template-columns: 1fr; }
+    .hero { padding-top: 40px; }
+    .about { grid-template-columns: 1fr; justify-items: start; }
+    .contact { padding: 40px 22px; border-radius: 24px; }
   }
-  a { color: var(--accent); }
-  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-
-  header.top {
-    border-bottom: 1px solid var(--line);
-    background: var(--surface);
-  }
-  header.top .wrap {
-    display: flex; justify-content: space-between; align-items: center;
-    padding-top: 16px; padding-bottom: 16px; gap: 16px; flex-wrap: wrap;
-  }
-  .logo { font-weight: bold; font-size: 1.1rem; text-decoration: none; color: var(--text); }
-  nav { display: flex; gap: 20px; font-family: system-ui, sans-serif; font-size: .95rem; }
-  nav a { color: var(--muted); text-decoration: none; }
-  nav a:hover { color: var(--accent); }
-
-  .hero { padding: 88px 0 64px; }
-  .hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.1; margin: 0 0 20px; letter-spacing: -0.02em; }
-  .hero p { font-size: 1.15rem; color: var(--muted); max-width: 56ch; margin: 0 0 28px; }
-  .btn {
-    display: inline-block; padding: 12px 22px; border-radius: 6px;
-    font-family: system-ui, sans-serif; font-weight: 600; text-decoration: none;
-    background: var(--accent); color: var(--accent-ink);
-  }
-  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); margin-left: 8px; }
-
-  section { padding: 56px 0; border-top: 1px solid var(--line); }
-  h2 { font-size: 1.7rem; margin: 0 0 28px; }
-
-  .about p { max-width: 62ch; margin: 0 0 14px; }
-  .skills { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 20px 0 0; list-style: none; font-family: system-ui, sans-serif; font-size: .9rem; }
-  .skills li { border: 1px solid var(--line); background: var(--surface); padding: 4px 12px; border-radius: 999px; }
-
-  .projects { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-  .project {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
-    padding: 22px; display: flex; flex-direction: column;
-  }
-  .project h3 { margin: 0 0 8px; font-size: 1.15rem; }
-  .project p { margin: 0 0 16px; color: var(--muted); font-size: .98rem; flex: 1; }
-  .tags { font-family: system-ui, sans-serif; font-size: .82rem; color: var(--muted); margin-bottom: 14px; }
-  .links { display: flex; gap: 16px; font-family: system-ui, sans-serif; font-size: .92rem; font-weight: 600; }
-
-  .contact p { max-width: 56ch; }
-  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-family: system-ui, sans-serif; font-size: .9rem; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
 
-<header class="top">
+<!-- Pictogrammes réutilisables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="gear-i" viewBox="0 0 40 40" fill="none" stroke="currentColor">
+      <circle cx="20" cy="20" r="14" stroke-width="6" stroke-dasharray="4.4 4.4"/>
+      <circle cx="20" cy="20" r="11" stroke-width="3"/>
+      <circle cx="20" cy="20" r="4" stroke-width="3"/>
+    </symbol>
+    <symbol id="chip-i" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="10" width="20" height="20" rx="3"/>
+      <rect x="16" y="16" width="8" height="8" rx="1.5"/>
+      <path d="M15 4v6M20 4v6M25 4v6M15 30v6M20 30v6M25 30v6M4 15h6M4 20h6M4 25h6M30 15h6M30 20h6M30 25h6"/>
+    </symbol>
+    <symbol id="cube" viewBox="0 0 100 100">
+      <polygon points="50,6 92,28 50,50 8,28" fill="currentColor"/>
+      <polygon points="50,6 92,28 50,50 8,28" fill="#fff" opacity=".4"/>
+      <polygon points="8,28 50,50 50,94 8,72" fill="currentColor"/>
+      <polygon points="92,28 50,50 50,94 92,72" fill="currentColor"/>
+      <polygon points="92,28 50,50 50,94 92,72" fill="#3a3530" opacity=".22"/>
+      <path d="M50 6L92 28V72L50 94L8 72V28Z M8 28L50 50L92 28 M50 50V94" fill="none" stroke="#3a3530" stroke-width="3" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="arm-i" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 56h26M23 56v-8M23 48L16 26M16 26L40 14M40 14v14M35 28h10M35 28v8M45 28v8"/>
+      <circle cx="23" cy="48" r="4"/><circle cx="16" cy="26" r="4"/><circle cx="40" cy="14" r="4"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
   <div class="wrap">
-    <a class="logo" href="#accueil">Votre Nom</a>
+    <a class="brand" href="#accueil"><svg aria-hidden="true"><use href="#gear-i"/></svg>Feriel Elghoul</a>
     <nav aria-label="Navigation principale">
-      <a href="#apropos">À propos</a>
+      <a href="#profil">Profil</a>
       <a href="#projets">Projets</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#competences">Compétences</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="accueil">
   <div class="wrap">
 
-    <div class="hero" id="accueil">
-      <h1>Bonjour, je suis Votre Nom.</h1>
-      <p>Je suis [votre métier ou votre formation, par exemple : développeur web, étudiant en informatique, designer]. Voici une sélection de mes projets et de mes travaux.</p>
-      <a class="btn" href="#projets">Voir mes projets</a>
-      <a class="btn ghost" href="#contact">Me contacter</a>
+    <div class="hero">
+      <div>
+        <div class="badge">Disponible pour un stage dès le 15 mars 2027</div>
+        <h1>Je conçois des mécanismes qui prennent vie.</h1>
+        <p>Feriel Elghoul, élève ingénieure en génie mécanique à Sigma Clermont. Conception 3D, robotique et prototypage.</p>
+        <div class="actions">
+          <a class="btn dark" href="#projets">Voir mes projets</a>
+          <a class="btn ghost" href="cv_feriel.pdf" target="_blank" rel="noopener">Télécharger mon CV</a>
+        </div>
+      </div>
+
+      <!-- Bras robotisé qui saisit un cube + engrenages -->
+      <svg class="hero-art" viewBox="0 0 400 400" role="img" aria-label="Illustration d’un bras robotisé qui saisit un cube, avec deux engrenages">
+        <circle cx="200" cy="215" r="172" fill="#f2c9c4" opacity=".55"/>
+        <circle cx="318" cy="322" r="58" fill="#d4cae8" opacity=".75"/>
+        <g id="gears"></g>
+        <line x1="60" y1="372" x2="340" y2="372" stroke="#3a3530" stroke-width="2" stroke-linecap="round"/>
+        <rect x="120" y="358" width="160" height="14" rx="7" fill="#b9cfb8" stroke="#3a3530" stroke-width="2"/>
+        <rect x="165" y="324" width="70" height="36" rx="10" fill="#f3e3ae" stroke="#3a3530" stroke-width="2"/>
+        <g stroke-linecap="round" fill="none">
+          <line x1="200" y1="318" x2="150" y2="200" stroke="#3a3530" stroke-width="32"/>
+          <line x1="200" y1="318" x2="150" y2="200" stroke="#bcd3e3" stroke-width="28"/>
+          <line x1="150" y1="200" x2="250" y2="120" stroke="#3a3530" stroke-width="32"/>
+          <line x1="150" y1="200" x2="250" y2="120" stroke="#d4cae8" stroke-width="28"/>
+          <line x1="250" y1="120" x2="250" y2="168" stroke="#3a3530" stroke-width="26"/>
+          <line x1="250" y1="120" x2="250" y2="168" stroke="#b9cfb8" stroke-width="22"/>
+        </g>
+        <use href="#cube" x="233" y="176" width="34" height="34" style="color:#f2c9c4"/>
+        <rect x="228" y="164" width="44" height="11" rx="5" fill="#3a3530"/>
+        <rect x="228" y="172" width="9" height="36" rx="4" fill="#3a3530"/>
+        <rect x="263" y="172" width="9" height="36" rx="4" fill="#3a3530"/>
+        <g fill="#f3e3ae" stroke="#3a3530" stroke-width="2">
+          <circle cx="200" cy="318" r="20"/><circle cx="150" cy="200" r="21"/><circle cx="250" cy="120" r="18"/>
+        </g>
+        <g fill="#3a3530"><circle cx="200" cy="318" r="6"/><circle cx="150" cy="200" r="6"/><circle cx="250" cy="120" r="5"/></g>
+      </svg>
     </div>
 
-    <section id="apropos" class="about">
-      <h2>À propos</h2>
-      <p>Présentez-vous en quelques phrases : votre parcours, ce qui vous intéresse et le type de projets que vous aimez réaliser.</p>
-      <p>Ajoutez ce que vous recherchez : un stage, un emploi, des missions freelance ou des collaborations.</p>
-      <ul class="skills" aria-label="Compétences">
-        <li>HTML / CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Git / GitHub</li>
-      </ul>
+    <div class="divider" aria-hidden="true"><svg><use href="#gear-i"/></svg></div>
+
+    <section id="profil">
+      <h2 class="title">Qui suis-je ?</h2>
+      <div class="about">
+        <div class="photo">FE<img src="images/feriel.jpg" alt="Portrait de Feriel Elghoul" onerror="this.remove()"></div>
+        <div>
+          <p>Élève ingénieure en double diplôme, rigoureuse et polyvalente. J’aime transformer un problème technique en une pièce qui fonctionne, de la CAO jusqu’aux essais.</p>
+          <p>Je veux mettre mes compétences au service du développement et de l’amélioration de solutions mécaniques et technologiques.</p>
+        </div>
+      </div>
+      <div class="strengths">
+        <div class="strength s1"><svg aria-hidden="true"><use href="#gear-i"/></svg><h3>Conception 3D</h3><p>Modélisation et optimisation de pièces mécaniques sous SolidWorks, certifiée CSWP.</p></div>
+        <div class="strength s2"><svg aria-hidden="true"><use href="#cube"/></svg><h3>Prototypage</h3><p>Impression 3D, usinage et essais expérimentaux pour valider chaque assemblage.</p></div>
+        <div class="strength s3"><svg aria-hidden="true"><use href="#chip-i"/></svg><h3>Mécatronique</h3><p>Capteurs, microcontrôleurs et robots : je relie la mécanique à l’électronique.</p></div>
+      </div>
     </section>
 
     <section id="projets">
-      <h2>Projets</h2>
+      <h2 class="title">Mes projets</h2>
+      <p class="lead">Trois réalisations dont je suis fière, de la modélisation à la fabrication.</p>
       <div class="projects">
 
         <article class="project">
-          <h3>Nom du projet 1</h3>
-          <p>Décrivez en deux phrases ce que fait le projet et quel problème il résout.</p>
-          <div class="tags">HTML, CSS, JavaScript</div>
-          <div class="links">
-            <a href="https://github.com/VOTRE-IDENTIFIANT/projet-1">Code</a>
-            <a href="#">Démo</a>
+          <div class="media m1">
+            <div><svg aria-hidden="true"><use href="#gear-i"/></svg>Photo ou rendu 3D à ajouter</div>
+            <img src="images/main-robotique.jpg" alt="Main robotique modélisée et imprimée en 3D" onerror="this.remove()">
+          </div>
+          <div class="body">
+            <h3>Main robotique</h3>
+            <p class="where">Sigma Clermont, France</p>
+            <ul>
+              <li>Modélisation 3D et conception mécanique de la main.</li>
+              <li>Impression 3D des composants et validation des assemblages.</li>
+              <li>Intégration des capteurs et développement des modules de commande.</li>
+            </ul>
+            <ul class="tags"><li>Modélisation 3D</li><li>Impression 3D</li><li>Capteurs</li></ul>
           </div>
         </article>
 
         <article class="project">
-          <h3>Nom du projet 2</h3>
-          <p>Décrivez en deux phrases ce que fait le projet et quel problème il résout.</p>
-          <div class="tags">Python</div>
-          <div class="links">
-            <a href="https://github.com/VOTRE-IDENTIFIANT/projet-2">Code</a>
+          <div class="media m2">
+            <div><svg aria-hidden="true"><use href="#arm-i"/></svg>Photo ou rendu 3D à ajouter</div>
+            <img src="images/tete-impression-ur10.jpg" alt="Tête d’impression 3D montée sur le robot UR10" onerror="this.remove()">
+          </div>
+          <div class="body">
+            <h3>Tête d’impression 3D sur robot UR10</h3>
+            <p class="where">Sigma Clermont, France</p>
+            <ul>
+              <li>Modélisation complète d’une tête d’impression adaptée à l’effecteur du robot UR10.</li>
+              <li>Pièces réalisées par usinage et fabrication additive pour valider l’assemblage.</li>
+            </ul>
+            <ul class="tags"><li>UR10</li><li>Usinage</li><li>Fabrication additive</li></ul>
           </div>
         </article>
 
         <article class="project">
-          <h3>Nom du projet 3</h3>
-          <p>Décrivez en deux phrases ce que fait le projet et quel problème il résout.</p>
-          <div class="tags">Technologies utilisées</div>
-          <div class="links">
-            <a href="https://github.com/VOTRE-IDENTIFIANT/projet-3">Code</a>
+          <div class="media m3">
+            <div><svg aria-hidden="true"><use href="#chip-i"/></svg>Photo ou rendu à ajouter</div>
+            <img src="images/drone-esp32.jpg" alt="Drone et circuit imprimé ESP32" onerror="this.remove()">
+          </div>
+          <div class="body">
+            <h3>Conception et pilotage d’un drone</h3>
+            <p class="where">École nationale d’ingénieurs de Sousse, Tunisie</p>
+            <ul>
+              <li>Architecture d’un contrôleur de vol personnalisé basé sur l’ESP32.</li>
+              <li>Circuit imprimé (PCB) conçu pour intégrer l’ESP32 et les capteurs.</li>
+            </ul>
+            <ul class="tags"><li>ESP32</li><li>PCB</li><li>Arduino</li></ul>
           </div>
         </article>
 
       </div>
     </section>
+  </div>
 
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p>Une question, une idée de projet ? Écrivez-moi.</p>
-      <p>
-        <a href="mailto:votre.email@exemple.com">votre.email@exemple.com</a><br>
-        <a href="https://github.com/VOTRE-IDENTIFIANT">github.com/VOTRE-IDENTIFIANT</a><br>
-        <a href="https://www.linkedin.com/in/VOTRE-PROFIL">LinkedIn</a>
-      </p>
+  <div class="band" id="parcours">
+    <div class="wrap">
+      <section>
+        <h2 class="title">Mon parcours</h2>
+        <p class="lead">Deux stages en entreprise et un parcours d’ingénieure entre la Tunisie et la France.</p>
+        <div class="cols">
+
+          <div>
+            <h3>Expérience</h3>
+            <ol class="timeline">
+              <li>
+                <div class="date">Mai – septembre 2026</div>
+                <h4>Stage assistante ingénieure, bureau d’études</h4>
+                <div class="org">CAPPERS S.A.S, Lezoux</div>
+                <ul>
+                  <li>Conception et validation de solutions par CAO, simulation, prototypage 3D et essais.</li>
+                  <li>Amélioration de la fiabilité des vannes domestiques, en tenant compte des contraintes industrielles et économiques.</li>
+                  <li>Participation aux réunions pour proposer et évaluer des investissements.</li>
+                </ul>
+              </li>
+              <li>
+                <div class="date">Juillet – août 2025</div>
+                <h4>Stage assistante ingénieure, maintenance</h4>
+                <div class="org">SAFRAN Power &amp; Electrical, Tunisie</div>
+                <ul>
+                  <li>Diagnostic du système de pompage de sécurité incendie.</li>
+                  <li>Nouvelle disposition 3D du local technique sous SolidWorks, pour faciliter l’accès et la maintenance.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div>
+            <h3>Formation</h3>
+            <ol class="timeline">
+              <li>
+                <div class="date">2025 – aujourd’hui</div>
+                <h4>Double diplôme en génie mécanique, Machines, Robots et Systèmes</h4>
+                <div class="org">Sigma Clermont, France</div>
+                <p>CFAO, IAO, machine learning, modélisation des robots.</p>
+              </li>
+              <li>
+                <div class="date">2023 – 2025</div>
+                <h4>Génie mécatronique</h4>
+                <div class="org">École nationale d’ingénieurs de Sousse, Tunisie</div>
+                <p>CFAO, méthodes de production mécanique, API, mécanique des fluides, MMC.</p>
+              </li>
+              <li>
+                <div class="date">2020 – 2023</div>
+                <h4>Cycle préparatoire en physique-technologie</h4>
+                <div class="org">IPEI de Nabeul, Tunisie</div>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="competences">
+      <h2 class="title">Mes outils</h2>
+      <p class="lead">Les logiciels que j’utilise, et mon niveau sur chacun.</p>
+      <ul class="skills">
+        <li><span><b>SolidWorks</b> <small>(CSWP)</small></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
+        <li><span><b>3DEXPERIENCE</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
+        <li><span><b>Arduino</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
+        <li><span><b>Pack Office</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
+        <li><span><b>Mastercam</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
+        <li><span><b>MATLAB</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
+        <li><span><b>ANSYS</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
+        <li><span><b>RoboDK</b></span><span class="lv">Débutant</span><div class="bar"><span class="w1"></span></div></li>
+        <li><span><b>HyperWorks</b></span><span class="lv">Débutant</span><div class="bar"><span class="w1"></span></div></li>
+      </ul>
+
+      <div class="extra">
+        <div class="box">
+          <h3>Langues</h3>
+          <ul class="langs">
+            <li>Arabe<span>langue maternelle</span></li>
+            <li>Français<span>B2</span></li>
+            <li>Anglais<span>B2</span></li>
+            <li>Allemand<span>A2</span></li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Vie associative</h3>
+          <p><b>Cheffe média, Orange Digital Center Club ENISo</b></p>
+          <p>Coordination de la communication du club, création de contenus visuels et couverture des événements (2024 – 2025).</p>
+        </div>
+      </div>
     </section>
 
+    <section id="contact" style="padding-top:0">
+      <div class="contact">
+        <svg class="deco d1" aria-hidden="true"><use href="#gear-i"/></svg>
+        <svg class="deco d2" aria-hidden="true"><use href="#gear-i"/></svg>
+        <h2>Un stage, un projet ? Parlons-en.</h2>
+        <p>Je cherche un stage de fin d’études de 22 semaines à partir du 15 mars 2027. Écris-moi, je réponds avec plaisir.</p>
+        <div class="actions">
+          <a class="btn b1" href="mailto:feriel.elghoul@sigma-clermont.fr">feriel.elghoul@sigma-clermont.fr</a>
+          <a class="btn b2" href="https://www.linkedin.com/in/VOTRE-PROFIL" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn b3" href="https://github.com/VOTRE-IDENTIFIANT" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
   </div>
+
 </main>
 
-<footer>
-  <div class="wrap">© 2026 Votre Nom</div>
-</footer>
+<footer>© 2026 Feriel Elghoul, Clermont-Ferrand, France</footer>
 
+<script>
+  // Deux engrenages dessinés en ligne claire dans l’illustration
+  (function () {
+    function gear(cx, cy, N, R, r, fill, holes) {
+      var p = 2 * Math.PI / N, d = "";
+      function pt(a, rad) { return (cx + rad * Math.cos(a)).toFixed(1) + " " + (cy + rad * Math.sin(a)).toFixed(1); }
+      for (var i = 0; i < N; i++) {
+        var a = i * p + 0.1;
+        d += (i ? "L" : "M") + pt(a - 0.30 * p, r) + "L" + pt(a - 0.16 * p, R) + "L" + pt(a + 0.16 * p, R) + "L" + pt(a + 0.30 * p, r);
+      }
+      var s = '<path class="gear" d="' + d + 'Z" fill="' + fill + '"/>';
+      s += '<circle class="gear" cx="' + cx + '" cy="' + cy + '" r="' + (r * 0.3) + '" fill="#f4ede4"/>';
+      for (var j = 0; j < holes; j++) {
+        var b = j * 2 * Math.PI / holes;
+        s += '<circle class="gear" cx="' + (cx + r * 0.62 * Math.cos(b)).toFixed(1) + '" cy="' + (cy + r * 0.62 * Math.sin(b)).toFixed(1) + '" r="' + (r * 0.13) + '" fill="#f4ede4"/>';
+      }
+      return s;
+    }
+    document.getElementById("gears").innerHTML =
+      gear(78, 112, 12, 46, 38, "#f3e3ae", 5) +
+      gear(158, 78, 10, 38, 31, "#b9cfb8", 4);
+  })();
+</script>
 </body>
 </html>
