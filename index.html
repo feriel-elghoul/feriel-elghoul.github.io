@@ -70,7 +70,7 @@
   /* Profil */
   .about { display: grid; grid-template-columns: 200px 1fr; gap: 36px; align-items: center; margin-bottom: 34px; }
   .photo { position: relative; width: 200px; height: 200px; border-radius: 50%; border: 6px solid var(--card); outline: 2px solid var(--sage); background: linear-gradient(150deg, var(--blush), var(--lilac)); overflow: hidden; display: grid; place-items: center; font-family: var(--head); font-weight: 700; font-size: 3rem; color: var(--ink); }
-  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 12%; background: var(--card); }
   .about p { margin: 0 0 12px; max-width: 58ch; }
   .strengths { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
   .strength { border-radius: 22px; padding: 26px; border: 1px solid rgba(58, 53, 48, .1); }
@@ -112,7 +112,10 @@
 
   /* Compétences */
   .skills { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px 44px; }
-  .skills li { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: center; }
+  .skills li { display: grid; grid-template-columns: auto 1fr auto; gap: 8px 12px; align-items: center; }
+  .logo { position: relative; width: 38px; height: 38px; border-radius: 10px; background: var(--card); border: 1px solid var(--edge); display: grid; place-items: center; overflow: hidden; font-family: var(--head); font-weight: 700; font-size: .78rem; color: var(--ink); }
+  .logo.p1 { background: var(--lilac); } .logo.p2 { background: var(--sage); } .logo.p3 { background: var(--sky); } .logo.p4 { background: var(--blush); } .logo.p5 { background: var(--butter); }
+  .logo img { position: absolute; inset: 0; width: 100%; height: 100%; padding: 7px; object-fit: contain; background: var(--card); }
   .skills b { font-weight: 700; }
   .skills small { color: var(--muted); }
   .lv { font-size: .86rem; color: var(--muted); }
@@ -374,15 +377,15 @@
       <h2 class="title">Mes outils</h2>
       <p class="lead">Les logiciels que j’utilise, et mon niveau sur chacun.</p>
       <ul class="skills">
-        <li><span><b>SolidWorks</b> <small>(CSWP)</small></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
-        <li><span><b>3DEXPERIENCE</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
-        <li><span><b>Arduino</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
-        <li><span><b>Pack Office</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
-        <li><span><b>Mastercam</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
-        <li><span><b>MATLAB</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
-        <li><span><b>ANSYS</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
-        <li><span><b>RoboDK</b></span><span class="lv">Débutant</span><div class="bar"><span class="w1"></span></div></li>
-        <li><span><b>HyperWorks</b></span><span class="lv">Débutant</span><div class="bar"><span class="w1"></span></div></li>
+        <li><span class="logo p1" data-slug="solidworks" data-local="SolidWorks">SW<img alt="" hidden></span><span><b>SolidWorks</b> <small>(CSWP)</small></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
+        <li><span class="logo p3" data-slug="dassaultsystemes" data-local="3DEXPERIENCE">3DX<img alt="" hidden></span><span><b>3DEXPERIENCE</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
+        <li><span class="logo p2" data-slug="arduino" data-local="Arduino">AR<img alt="" hidden></span><span><b>Arduino</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
+        <li><span class="logo p5" data-slug="microsoftoffice" data-local="Office">OF<img alt="" hidden></span><span><b>Pack Office</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
+        <li><span class="logo p4" data-slug="" data-local="Mastercam">MC<img alt="" hidden></span><span><b>Mastercam</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
+        <li><span class="logo p5" data-slug="mathworks" data-local="MATLAB">ML<img alt="" hidden></span><span><b>MATLAB</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
+        <li><span class="logo p1" data-slug="ansys" data-local="ANSYS">AN<img alt="" hidden></span><span><b>ANSYS</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
+        <li><span class="logo p2" data-slug="" data-local="RoboDK">RD<img alt="" hidden></span><span><b>RoboDK</b></span><span class="lv">Débutant</span><div class="bar"><span class="w1"></span></div></li>
+        <li><span class="logo p3" data-slug="" data-local="HyperWorks">HW<img alt="" hidden></span><span><b>HyperWorks</b></span><span class="lv">Débutant</span><div class="bar"><span class="w1"></span></div></li>
       </ul>
 
       <div class="extra">
@@ -444,6 +447,20 @@
       gear(78, 112, 12, 46, 38, "#f3e3ae", 5) +
       gear(158, 78, 10, 38, 31, "#b9cfb8", 4);
   })();
+
+  // Logos des outils : image locale (images/logos/nom.png), sinon logo en ligne, sinon pastille avec initiales
+  document.querySelectorAll(".logo").forEach(function (el) {
+    var srcs = [], img = el.querySelector("img"), i = 0;
+    if (el.dataset.local) srcs.push("images/logos/" + el.dataset.local + ".png");
+    if (el.dataset.slug) srcs.push("https://cdn.simpleicons.org/" + el.dataset.slug);
+    function next() {
+      if (i >= srcs.length) { img.remove(); return; }
+      img.src = srcs[i++];
+    }
+    img.onload = function () { img.hidden = false; };
+    img.onerror = next;
+    next();
+  });
 </script>
 </body>
 </html>
