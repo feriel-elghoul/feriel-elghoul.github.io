@@ -94,6 +94,11 @@
   .project ul.tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; flex: 0; margin-bottom: 0; }
   .tags li { margin: 0; padding: 3px 12px; border-radius: 999px; font-size: .84rem; font-weight: 500; background: var(--beige-2); border: 1px solid var(--edge); }
 
+  .video { margin: 0 0 18px; }
+  .video h4 { font-size: .98rem; margin: 0 0 8px; }
+  .vbox { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: var(--sky); border: 1px solid var(--edge); display: grid; place-items: center; text-align: center; padding: 10px; font-size: .88rem; font-weight: 500; }
+  .vbox video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; }
+
   /* Parcours */
   .band { background: var(--beige-2); margin-top: 60px; padding: 8px 0 70px; }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
@@ -116,6 +121,7 @@
   .logo { position: relative; width: 38px; height: 38px; border-radius: 10px; background: var(--card); border: 1px solid var(--edge); display: grid; place-items: center; overflow: hidden; font-family: var(--head); font-weight: 700; font-size: .78rem; color: var(--ink); }
   .logo.p1 { background: var(--lilac); } .logo.p2 { background: var(--sage); } .logo.p3 { background: var(--sky); } .logo.p4 { background: var(--blush); } .logo.p5 { background: var(--butter); }
   .logo .pic { width: 22px; height: 22px; color: var(--ink); }
+  .logo .pic.brand { width: 100%; height: 100%; }
   .logo img { position: absolute; inset: 0; width: 100%; height: 100%; padding: 7px; object-fit: contain; background: var(--card); }
   .skills b { font-weight: 700; }
   .skills small { color: var(--muted); }
@@ -181,6 +187,12 @@
     <symbol id="pic-mill" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5h10v13l-3 5h-4l-3-5z M16 10l8 4 M16 16l8 4 M20 23v11 M13 35h14"/></symbol>
     <symbol id="pic-plot" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 6v28h27 M10 27c5-17 9-17 12-5s7 8 12-12"/></symbol>
     <symbol id="pic-mesh" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M5 32L14 9L26 27Z M14 9L35 7L26 27Z M26 27L35 7L35 34Z M5 32L26 27L35 34"/></symbol>
+    <symbol id="lg-sw" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#e2231a"/><path d="M0 28h40v3a9 9 0 0 1-9 9H9a9 9 0 0 1-9-9z" fill="#a5130d"/><text x="20" y="25" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="17" fill="#fff">SW</text></symbol>
+    <symbol id="lg-ml" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#fff"/><path d="M3 29L14 12l7 8 6-14 10 23z" fill="#ed6c23"/><path d="M3 29h34l-5 6H8z" fill="#0f6cb6"/></symbol>
+    <symbol id="lg-of" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#fff"/><path d="M7 13l17-7 9 3v22l-9 3-17-7z" fill="#e8501c"/><path d="M24 10v20l-11-4V14z" fill="#fff"/></symbol>
+    <symbol id="lg-mc" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#17365d"/><text x="20" y="27" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="22" fill="#fff">M</text><path d="M7 33c8-4 18-4 26 0" stroke="#3cc3e6" stroke-width="3" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="lg-rd" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#1d6fa9"/><g color="#fff"><use href="#arm-i" x="6" y="6" width="28" height="28"/></g></symbol>
+    <symbol id="lg-hw" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#0c63b3"/><path d="M20 5l13 7.5v15L20 35 7 27.5v-15z" fill="none" stroke="#fff" stroke-width="2.2"/><text x="20" y="25" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="12" fill="#fff">HW</text></symbol>
     <symbol id="arm-i" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
       <path d="M10 56h26M23 56v-8M23 48L16 26M16 26L40 14M40 14v14M35 28h10M35 28v8M45 28v8"/>
       <circle cx="23" cy="48" r="4"/><circle cx="16" cy="26" r="4"/><circle cx="40" cy="14" r="4"/>
@@ -310,7 +322,16 @@
               <li>Architecture d’un contrôleur de vol personnalisé basé sur l’ESP32.</li>
               <li>Circuit imprimé (PCB) conçu pour intégrer l’ESP32 et les capteurs.</li>
             </ul>
-            <ul class="tags"><li>ESP32</li><li>PCB</li><li>Arduino</li></ul>
+            <div class="video">
+            <h4>Vidéo du drone</h4>
+            <div class="vbox">
+              <span>Vidéo à ajouter (videos/drone.mp4)</span>
+              <video controls preload="metadata" playsinline poster="images/drone-esp32.jpg" aria-label="Vidéo de démonstration du drone">
+                <source src="videos/drone.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <ul class="tags"><li>ESP32</li><li>PCB</li><li>Arduino</li></ul>
           </div>
         </article>
 
@@ -383,15 +404,15 @@
       <h2 class="title">Mes outils</h2>
       <p class="lead">Les logiciels que j’utilise, et mon niveau sur chacun.</p>
       <ul class="skills">
-        <li><span class="logo p1" data-slug="solidworks" data-local="SolidWorks"><svg class="pic" aria-hidden="true"><use href="#pic-cad"/></svg><img alt="" hidden></span><span><b>SolidWorks</b> <small>(CSWP)</small></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
+        <li><span class="logo p1" data-slug="solidworks" data-local="SolidWorks"><svg class="pic brand" aria-hidden="true"><use href="#lg-sw"/></svg><img alt="" hidden></span><span><b>SolidWorks</b> <small>(CSWP)</small></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
         <li><span class="logo p3" data-slug="dassaultsystemes" data-local="3DEXPERIENCE">3DX<img alt="" hidden></span><span><b>3DEXPERIENCE</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
         <li><span class="logo p2" data-slug="arduino" data-local="Arduino">AR<img alt="" hidden></span><span><b>Arduino</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
-        <li><span class="logo p5" data-slug="microsoftoffice" data-local="Office" data-alt="https://cdn.jsdelivr.net/npm/simple-icons@8.15.0/icons/microsoftoffice.svg"><svg class="pic" aria-hidden="true"><use href="#pic-office"/></svg><img alt="" hidden></span><span><b>Pack Office</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
-        <li><span class="logo p4" data-slug="" data-local="Mastercam"><svg class="pic" aria-hidden="true"><use href="#pic-mill"/></svg><img alt="" hidden></span><span><b>Mastercam</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
-        <li><span class="logo p5" data-slug="mathworks" data-local="MATLAB" data-alt="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg"><svg class="pic" aria-hidden="true"><use href="#pic-plot"/></svg><img alt="" hidden></span><span><b>MATLAB</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
+        <li><span class="logo p5" data-slug="microsoftoffice" data-local="Office"><svg class="pic brand" aria-hidden="true"><use href="#lg-of"/></svg><img alt="" hidden></span><span><b>Pack Office</b></span><span class="lv">Opérationnel</span><div class="bar"><span class="w3"></span></div></li>
+        <li><span class="logo p4" data-slug="" data-local="Mastercam"><svg class="pic brand" aria-hidden="true"><use href="#lg-mc"/></svg><img alt="" hidden></span><span><b>Mastercam</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
+        <li><span class="logo p5" data-slug="mathworks" data-local="MATLAB" data-alt="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg"><svg class="pic brand" aria-hidden="true"><use href="#lg-ml"/></svg><img alt="" hidden></span><span><b>MATLAB</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
         <li><span class="logo p1" data-slug="ansys" data-local="ANSYS">AN<img alt="" hidden></span><span><b>ANSYS</b></span><span class="lv">Intermédiaire</span><div class="bar"><span class="w2"></span></div></li>
-        <li><span class="logo p2" data-slug="" data-local="RoboDK"><svg class="pic" aria-hidden="true"><use href="#arm-i"/></svg><img alt="" hidden></span><span><b>RoboDK</b></span><span class="lv">Débutant</span><div class="bar"><span class="w1"></span></div></li>
-        <li><span class="logo p3" data-slug="" data-local="HyperWorks"><svg class="pic" aria-hidden="true"><use href="#pic-mesh"/></svg><img alt="" hidden></span><span><b>HyperWorks</b></span><span class="lv">Débutant</span><div class="bar"><span class="w1"></span></div></li>
+        <li><span class="logo p2" data-slug="" data-local="RoboDK"><svg class="pic brand" aria-hidden="true"><use href="#lg-rd"/></svg><img alt="" hidden></span><span><b>RoboDK</b></span><span class="lv">Débutant</span><div class="bar"><span class="w1"></span></div></li>
+        <li><span class="logo p3" data-slug="" data-local="HyperWorks"><svg class="pic brand" aria-hidden="true"><use href="#lg-hw"/></svg><img alt="" hidden></span><span><b>HyperWorks</b></span><span class="lv">Débutant</span><div class="bar"><span class="w1"></span></div></li>
       </ul>
 
       <div class="extra">
@@ -467,6 +488,11 @@
     img.onload = function () { img.hidden = false; };
     img.onerror = next;
     next();
+  });
+  // Vidéo : si le fichier n'existe pas encore, on garde le bloc "à ajouter"
+  document.querySelectorAll(".vbox video").forEach(function (v) {
+    var src = v.querySelector("source");
+    if (src) src.addEventListener("error", function () { v.remove(); });
   });
 </script>
 </body>
